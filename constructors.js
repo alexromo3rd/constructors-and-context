@@ -15,6 +15,10 @@
 */
 
 // Code here
+function CarFactory (make, model) {
+  this.make = make,
+  this.model = model
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -34,6 +38,7 @@ function Employee(name, email, hireDate) {
   */
   
   // Code here
+  let bob = new Employee('Bob', 'bob@gmail.com', '01-02-98');
   
   ////////// PROBLEM 3 //////////
   
@@ -57,6 +62,16 @@ function Employee(name, email, hireDate) {
   */
   
   // Code here
+  function Car (make, model, year) {
+    this.make = make,
+    this.model = model,
+    this.year = year,
+    this.move = 0,
+
+    this.moveCar = function() {
+      return this.move += 10;
+    }
+  }
   
   ////////// PROBLEM 4 //////////
   
@@ -76,6 +91,10 @@ function Employee(name, email, hireDate) {
   }
   
   // Code here
+  Movie.prototype.changeRating = function(num) {
+    this.rating = (this.rating + num) / 2;
+    return this.rating;
+  }
   
   ////////// PROBLEM 5 //////////
   
@@ -84,6 +103,16 @@ function Employee(name, email, hireDate) {
   // Once the User constructor function is created, write a prototype method for the User function. Name this method addSavedPost. It should take in three parameters: id (a number), title (a string) and rating (a number). Use these parameters to create a new object and add it to the savedPosts array. Make sure to name the properties the same as described previously (id, title, rating).
   
   // Code here
+  function User (name, age, email, savedPosts) {
+    this.name = name,
+    this.age = age,
+    this.email = email,
+    this.savedPosts = savedPosts
+  }
+
+  User.prototype.addSavedPost = function(id, title, rating) {
+    this.savedPosts.push({id, title, rating});
+  }
   
   ////////// PROBLEM 6 //////////
   
@@ -91,6 +120,14 @@ function Employee(name, email, hireDate) {
   // Write a prototype method for the User constructor function named removeSavedPost that will take in one number parameter representing the post id. Use this id to find and remove the matching object in the savedPosts array.
   
   // Code here
+  User.prototype.removeSavePost = function(postId) {
+    this.savedPosts.forEach((post, index) => {
+      console.log(post);
+      // if (post[id] === postId) {
+      //   this.savedPosts.splice(index, 1);
+      // }
+    });
+  }
   
   ////////// PROBLEM 7 //////////
   
